@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      </head>
+    <body>
+        {% for msg in messages %}
+    {{msg}}
+    {% endfor %}
+        <div style="border: 3cm;color: black;padding-top: 1cm; border-radius: 1px; font-size: large;">
+                
+           
+          
+            <div class="container">
+                
+                <div class="row">
+                    {% for user in users %}
+                    <div class="col-sm-4">
+
+                        {{user.id}}.
+                        {{user.Name}}<br>
+
+                    <a href="{% url 'app12:picture' user.id %}">    <img src="{{user.Photo.url}}" alt="" height="100px" width="100px"></a>
+                      
+
+                    </div>
+                    {% endfor %}
+                </div>
+               
+            </div>
+        </tr>
+            
+
+            
+       
+    </table>
+
+</div>
+    </body>
+
+{% endblock %}

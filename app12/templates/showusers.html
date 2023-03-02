@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {% for msg in messages %}
+    {{msg}}
+    {% endfor %}
+   <center>
+    <div style="border: 3cm;color: black;padding-top: 1cm; border-radius: 1px; font-size: large;">
+        <table style="border: 2px; border-color: black; background-color:dimgrey">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Place</th>
+                <th>Email</th>
+                <th>Photo</th>
+                <th>Actions</th>
+            </tr>
+            {% for user in Image %}
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.Name}}</td>
+                <td>{{user.Age}}</td>
+                <td>{{user.Place}}</td>
+                <td>{{user.Email}}</td>
+                <td><img src="{{user.Photo.url}}" alt="" height="50px" width="50px"></td>
+                <td><a href="{% url 'app12:update' user.id %}">update</a></td>
+                <td><a href="{% url 'app12:delete' user.id %}">delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    
+    </div><br></br>
+   </center>
+{% endblock %}

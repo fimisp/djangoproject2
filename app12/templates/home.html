@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+    {% for msg in messages %}
+    {{msg}}
+    {% endfor %}
+    <center>
+        <div style="border: 3cm;color: black;padding-top: 1cm; border-radius: 1px; font-size: large;">
+                
+            {{user.id}}.
+            {{user.Name}}<br>
+            <img src="{{user.Photo.url}}" alt="" height="250px" width="250px">
+            <p>------------------------------------------------------------------</p>
+            <a href="{% url 'app12:changepassword' user.id %}">ChangePassword</a>,
+            <a href="{% url 'app12:update' user.id %}">Update</a>,<br>
+            <a href="{% url 'app12:logout' %}">[logout]</a><br>
+
+
+        </div><br>
+    </center>
+{% endblock %}
